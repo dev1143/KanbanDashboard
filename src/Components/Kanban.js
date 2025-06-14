@@ -8,6 +8,7 @@ import { updateCardItemsObj } from "../slice/cardTaskReducerSlice";
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import { ToastContainer } from "react-toastify";
 // Renamed for clarity
 
 const Container = styled.div`
@@ -126,6 +127,7 @@ const Kanban = () => {
                                     )}
                                 </Droppable>
                             ))}
+                            <ToastContainer />
 
                             <OpenModal />
                         </Grid>

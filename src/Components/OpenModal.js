@@ -6,6 +6,7 @@ import {
 import { useSelector, useDispatch } from 'react-redux';
 import { openCard, storeCardValue } from '../slice/cardTaskReducerSlice';
 import { storeCardDataValue } from "../actions/cardTaskactions";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function OpenModal() {
     const { viewMode, buttonMode } = useSelector((state) => state.card)
@@ -22,6 +23,7 @@ export default function OpenModal() {
     const handleSave = () => {
         dispatch(storeCardDataValue());
         dispatch(openCard(false));
+        toast('Saved Succesfullly!')
     };
     console.log('buttonMode__', buttonMode)
     return (
