@@ -61,13 +61,6 @@ const initialState = {
             items: [],
         },
     },
-
-    // registerValue: {},
-    // message: '',
-    // booleanVal: false,
-
-    // loginValue: {}
-    // topPriorityPost: []
 }
 export const cardTaskReducerSlice = createSlice({
     name: 'cardTaskReger',
