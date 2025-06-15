@@ -7,11 +7,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { openCard, storeCardValue } from '../slice/cardTaskReducerSlice';
 import { storeCardDataValue } from "../actions/cardTaskactions";
 import { ToastContainer, toast } from 'react-toastify';
+import moment from "moment";
 
 export default function OpenModal() {
     const { viewMode, buttonMode } = useSelector((state) => state.card)
     const dispatch = useDispatch();
     const { cardInfo = {}, openValue } = useSelector((state) => state.card);
+    const [value, setValue] = React.useState("")
 
     const handleChange = (e) => {
         dispatch(storeCardValue({
@@ -56,10 +58,16 @@ export default function OpenModal() {
                         variant="outlined"
                         margin="dense"
                     />
+
                     <TextField
+                        type="date"
+                        inputformat="dd/MM/yyyy"
                         fullWidth
                         name="Due_Date"
-                        value={cardInfo.Due_Date || ""}
+                        value={moment(cardInfo.Due_Date)
+                            .format("YYYY/MM/DD")
+                            .split("/")
+                            .join("-") || ""}
                         onChange={handleChange}
                         label="Due Date"
                         variant="outlined"
